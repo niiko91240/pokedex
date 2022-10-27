@@ -66,5 +66,7 @@ def insert_api(request):
 
 def liste(request):
     text = '<h1>Liste des pokemons</h1>'
-    text += '<br> ' + str(get_object_or_404(Pokemon, numero=1).nom)
+    pokemons_liste = Pokemon.objects.all()
+    for poke in pokemons_liste:
+        text += '<br>' + poke.nom
     return HttpResponse(text)
