@@ -1,2 +1,3 @@
 from django.db import models
-from .model.pokemon import Pokemon
+from .model.pokemon import Pokemon, Type
+
