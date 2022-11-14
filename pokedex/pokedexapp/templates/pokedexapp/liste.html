@@ -1,0 +1,31 @@
+{% load static %}
+<link rel="stylesheet" href="{% static '/styles/liste.css' %}">
+<link rel="icon" type="image/png" href="{% static '/images/icon-pikachu.png' %}" />
+<title>List</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="navbar">
+    <ul>
+        <li class="text"><a href="{% url 'home' %}">Home</a></li>
+        <li class="text" id="active"><a href="{% url 'list' %}">List</a></li>
+        <li class="text">Detail</li>
+        <li class="text">My Team</li>
+    </ul>
+</div>
+<div class="input-search">
+    <img src="{% static '/images/magnifying-glass-solid.svg' %}">
+    <input type="text" id="search" name="search" placeholder="Search Pokemon, type...">
+</div>
+<div class="wrapper">
+    <div class="container">
+        {% for x in pokemon %}
+            <div class='case-{{ x.couleur }}'><a href="{% url 'detail' x.numero %}">
+                <p class ='pokemon-nom'>{{ x.nom }}</p>
+                {% for y in x.types %}
+                    <button class ='pokemon-type{{ forloop.counter }}'>{{ y.nom | upper }}</button>
+                {% endfor %}
+                <img class = 'pokemon-image' src="{% static '/images/Pokeball.png' %}">
+                <img class='pokemon-pokemon' src='{{ x.image }}'>
+            </a></div>
+        {% endfor %}
+    </div>
+</div>

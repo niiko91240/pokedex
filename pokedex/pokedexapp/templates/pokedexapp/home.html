@@ -1,0 +1,40 @@
+{% load static %}
+<link rel="stylesheet" href="{% static '/styles/home.css' %}">
+<link rel="icon" type="image/png" href="{% static '/images/icon-pikachu.png' %}" />
+<title>My Pokedex</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css" />
+<!--<p class="home-title">My Pokedex</p>-->
+<div class="navbar">
+    <ul>
+        <li class="text" id="active"><a href="{% url 'home' %}">Home</a></li>
+        <li class="text"><a href="{% url 'list' %}">List</a></li>
+        <li class="text">Detail</li>
+        <li class="text">My Team</li>
+    </ul>
+</div>
+<div class="wrapper">
+    <img src="{% static '/images/pikachu.png' %}" class="home-image">
+</div>
+<div class="home-text">Gotta catch<br>  'Em all !</div>
+<div class="home-button-div">
+    <a href="{% url 'list' %}"><button class="home-button">
+        <span>DISCOVER</span>
+        <i class="icon-arrow-right"></i>
+    </button></a>
+</div>
+<div class="propo-container">
+    <a href="{% url 'detail' 6 %}"><div class="propo">
+        <div class="propo-circle"></div>
+        <img class="propo-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png">
+        <div class="propo-nom">Charizard</div>
+        <div class="propo-type">FIRE</div>
+        <i class="icon-arrow-right"></i>
+    </div></a>
+    <a href="{% url 'detail' 25 %}"><div class="propo">
+        <div class="propo-circle"></div>
+        <img class="propo-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png">
+        <div class="propo-nom">Pikachu</div>
+        <div class="propo-type" style="background-color: #FFD76F;">ELECTRIC</div>
+        <i class="icon-arrow-right"></i>
+    </div></a>
+</div>

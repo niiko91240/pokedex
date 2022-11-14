@@ -1,0 +1,53 @@
+{% load static %}
+<link rel="stylesheet" href="{% static '/styles/detail.css' %}">
+<link rel="icon" type="image/png" href="{% static '/images/icon-pikachu.png' %}" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css" />
+<title>{{ nom|title }}</title>
+<div class="return"><a href="{% url 'list' %}">
+    <img src="{% static '/images/arrow-left-long-solid.svg' %}">
+</a></div>
+<div class="menu">
+    <img src="{% static '/images/bars-solid.svg' %}">
+</div>
+<div class="wrapper-{{ couleur }}">
+    <div class="container">
+        <div class="left">
+            <div class="title">{{ nom|title }}</div>
+            <div class="numero">#{{ id|stringformat:"03d" }}</div>
+            <div class="types">
+                {% for y in types %}
+                <button class ='pokemon-type'>{{ y.nom | upper }}</button>
+                {% endfor %}
+            </div>
+            <img class = 'pokemon-fond' src="{% static '/images/Pokeball.png' %}">
+            <img class="pokemon-image" src='{{ image }}'>
+        </div>
+        <div class="right">
+            <div class="stats">
+                <span class="type">HP</span><span class="value">{{ pv }}</span><br>
+                <span class="type">Speed</span><span class="value">{{ vitesse }}</span><br>
+            </div>
+            <div class="stats2">
+                <span class="type">Attack</span><span class="value">{{ attaque }}</span><br>
+                <span class="type">Defense</span><span class="value">{{ defense }}</span><br>
+            </div>
+            <div class="stats3">
+                <span class="type">Special Attack</span><span class="value">{{ special_attaque }}</span><br>
+                <span class="type">Special Defense</span><span class="value">{{ special_defense }}</span><br>
+            </div>
+            <div class="wrapper-heart">
+                <div class="home-button-div">
+                    <a href="{% url 'list' %}"><button class="home-button">
+                        <span>Add this pokemon to my team !</span>
+                        <i class="icon-arrow-right"></i>
+                    </button></a>
+                </div>
+            </div>
+            <div class="wrapper-selector">
+                <a href="{% url 'detail' id|add:-1 %}"><img src="{% static '/images/arrow-left-long-solid.svg' %}"></a>
+                <span>#{{ id|stringformat:"03d" }}</span>
+                <a href="{% url 'detail' id|add:1 %}"><img src="{% static '/images/arrow-right-long-solid.svg' %}"></a>
+            </div>
+        </div>
+    </div>
+</div>
