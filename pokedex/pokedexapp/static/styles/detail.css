@@ -99,7 +99,7 @@ html {
 .right {
     background-color: white;
     width: 600px;
-    height: 300px;
+    height: 250px;
     border-radius: 30px;
 }
 
@@ -233,65 +233,10 @@ html {
   position: absolute;
 }
 
-.right .wrapper-heart {
-  width: 600px;
-  height: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  margin-top: 120px;
-}
-
-.home-button {
-  all: unset;
-  height: 60px;
-  width: 300px;
-  border-radius: 30px;
-  background-color: transparent;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-  background-color: #000;
-}
-
-.home-button span {
-  width: 300px;
-  color: white;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 400;
-  line-height: 0px;
-  position: absolute;
-  text-align: center;
-  transition: all 0.3s ease-in-out;
-}
-
-button i {
-  margin-left: 10px;
-  color: white;
-  position: absolute;
-  margin-left: 260px;
-  margin-top: -8px;
-  transition: all 0.3s ease-in-out;
-  opacity: 0;
-}
-
-button:hover {
-  
-}
-
-button:hover span {
-  transform: translateX(-10px);
-}
-
-button:hover i {
-  transform: translateX(10px);
-  opacity: 1;
-}
-
 .wrapper-selector {
   width: 600px;
   height: 100px;
-  margin-top: 200px;
+  margin-top: 120px;
   display: flex;
   position: absolute;
   justify-content: center;
