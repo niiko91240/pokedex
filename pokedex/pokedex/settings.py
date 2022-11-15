@@ -41,8 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'pokedexapp.apps.PokedexappConfig',
-    'django_filters',
+    'pokedexapp.apps.PokedexappConfig'
 ]
 
 MIDDLEWARE = [
