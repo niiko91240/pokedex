@@ -12,32 +12,6 @@ import os
 
 def insert_api(request):
     text = '<p>Page du script d\insertion des données'
-    pokemons_liste = Pokemon.objects.all()
-    max_pv = 0
-    max_attaque = 0
-    max_defense = 0
-    max_vitesse = 0
-    max_sattaque = 0
-    max_sdefense = 0
-    for poke in pokemons_liste:
-        if(max_pv<poke.pv):
-            max_pv = poke.pv
-        if(max_attaque<poke.attaque):
-            max_attaque = poke.attaque
-        if(max_defense<poke.defense):
-            max_defense = poke.defense
-        if(max_vitesse<poke.vitesse):
-            max_vitesse = poke.vitesse
-        if(max_sattaque<poke.special_attaque):
-            max_sattaque = poke.special_attaque
-        if(max_sdefense<poke.special_defense):
-            max_sdefense = poke.special_defense
-    text += "<br>MAX PV : " + str(max_pv)
-    text += "<br>MAX Attaque : " + str(max_attaque)
-    text += "<br>MAX Defense : " + str(max_defense)
-    text += "<br>MAX Vitesse : " + str(max_vitesse)
-    text += "<br>MAX Special Attaque : " + str(max_sattaque)
-    text += "<br>MAX Special Defense : " + str(max_sdefense)
 
     # ---- INSERTION DES TYPES ----
     # result3 = requests.get("https://pokeapi.co/api/v2/type").json()
@@ -170,3 +144,6 @@ def couleur(type_liste):
     if(type_couleur == ''):
         type_couleur = type_couleur2
     return type_couleur
+
+def teams(request):
+    return render(request, 'pokedexapp/teams.html')
