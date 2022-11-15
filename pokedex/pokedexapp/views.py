@@ -1,6 +1,6 @@
 from urllib.request import Request
 from django.shortcuts import get_object_or_404, render
-from .model.pokemon import Pokemon, Type
+from .model.pokemon import Pokemon, Type, Equipe
 from django.http import HttpResponse
 from django.template import loader
 from asyncio.windows_events import NULL
@@ -146,4 +146,8 @@ def couleur(type_liste):
     return type_couleur
 
 def teams(request):
+    equipe = Equipe()
+    equipe.nom = request.POST['teamName']
+    equipe.save()
+
     return render(request, 'pokedexapp/teams.html')
