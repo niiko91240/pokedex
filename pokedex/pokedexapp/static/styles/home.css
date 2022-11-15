@@ -231,3 +231,63 @@ button:hover i {
     transform: translateX(10px);
     color: #FF4C33;
 }
+
+.menu {
+    position: absolute;
+    margin-top: 50px;
+    margin-right: 50px;
+    right: 0;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .menu #menu-img {
+    width: 25px;
+    filter: invert(0%) sepia(0%) saturate(7%) hue-rotate(253deg) brightness(103%) contrast(100%);
+    position: absolute;
+    cursor: pointer;
+    z-index: 15;
+  }
+  
+  .menu .pokemon-fond {
+    position: absolute;
+    margin-left: -93px;
+    margin-top: -90px;
+    z-index: 0;
+  }
+  
+  .menu button {
+    all: unset;
+  }
+  
+  a {
+    all: unset;
+  }
+  
+  .menu-wrapper {
+    position: fixed;
+    background-color: #000;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0;
+    z-index: -2;
+    transition: all 0.2s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .menu-wrapper p {
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .menu-wrapper p:hover {
+    font-weight: 700;
+  }
+

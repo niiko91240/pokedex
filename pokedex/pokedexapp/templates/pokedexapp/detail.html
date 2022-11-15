@@ -7,7 +7,13 @@
     <img src="{% static '/images/arrow-left-long-solid.svg' %}">
 </a></div>
 <div class="menu">
-    <img src="{% static '/images/bars-solid.svg' %}">
+    <img class = 'pokemon-fond' src="{% static '/images/Pokeball-rotate.png' %}">
+    <button onclick="menuClick(true);" id="button-menu"><img src="{% static '/images/bars-solid.svg' %}" id="menu-img"></button>
+</div>
+<div class="menu-wrapper" id="menu-background">
+    <a href="{% url 'home' %}"><p>Home</p></a>
+    <a href="{% url 'list' %}"><p>List</p></a>
+    <p>Team</p>
 </div>
 <div class="wrapper-{{ couleur }}">
     <div class="container">
@@ -51,3 +57,4 @@
         </div>
     </div>
 </div>
+<script src="{% static '/scripts/menu.js' %}"></script>

@@ -5,6 +5,10 @@
     padding: 0;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 
 .wrapper-grass {
     width: 100%;
@@ -148,19 +152,6 @@
     font-size:20px;
     width: 600px;
     text-align: right;
-}
-
-.menu {
-  position: absolute;
-  margin-top: 50px;
-  cursor: pointer;
-  right: 0;
-  margin-right: 50px;
-}
-
-.menu img {
-  width: 25px;
-  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(52deg) brightness(103%) contrast(102%);
 }
 
 .return {
@@ -316,4 +307,62 @@ button:hover i {
   color: black;
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
+}
+
+.menu {
+  position: absolute;
+  margin-top: 50px;
+  margin-right: 50px;
+  right: 0;
+  z-index: 15;
+  transition: all 0.2s ease-in-out;
+}
+
+.menu #menu-img {
+  width: 25px;
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(52deg) brightness(103%) contrast(102%);
+  position: absolute;
+  cursor: pointer;
+}
+
+.menu .pokemon-fond {
+  position: absolute;
+  margin-left: -93px;
+  margin-top: -90px;
+}
+
+.menu button {
+  all: unset;
+}
+
+a {
+  all: unset;
+}
+
+.menu-wrapper {
+  position: fixed;
+  background-color: white;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0;
+  z-index: -2;
+  transition: all 0.2s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.menu-wrapper p {
+  color: black;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.menu-wrapper p:hover {
+  font-weight: 700;
 }
