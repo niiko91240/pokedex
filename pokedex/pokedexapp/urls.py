@@ -7,5 +7,6 @@ urlpatterns = [
     path('api/', views.insert_api, name="api"),
     path('list/', views.list, name="list"),
     path('home/', views.home, name="home"),
+    path('teams/', views.teams, name="teams"),
     path('detail/<int:id>/', views.detail, name='detail'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
