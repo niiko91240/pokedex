@@ -3,6 +3,9 @@ from django.db import models
 class Type(models.Model):
     nom = models.CharField(max_length=40)
 
+class Equipe(models.Model):
+    nom = models.CharField(max_length=50)
+
 class Pokemon(models.Model):
     nom = models.CharField(max_length=40)
     type = models.CharField(max_length=20)
@@ -17,3 +20,4 @@ class Pokemon(models.Model):
     front_image = models.URLField(default=None, blank=True)
     numero = models.IntegerField(default=0)
     types = models.ManyToManyField(Type)
+    equipes = models.ManyToManyField(Equipe)

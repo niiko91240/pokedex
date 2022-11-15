@@ -301,6 +301,7 @@ button:hover i {
 
 .wrapper-selector img {
   width: 25px;
+  cursor: pointer;
 }
 
 .wrapper-selector span {
