@@ -13,7 +13,7 @@
 <div class="menu-wrapper" id="menu-background">
     <a href="{% url 'home' %}"><p>Home</p></a>
     <a href="{% url 'list' %}"><p>List</p></a>
-    <a href="{% url 'teams' %}"><p>Teams</p></a>
+    <a href="{% url 'list' %}"><p>Teams</p></a>
 </div>
 <div class="wrapper-{{ couleur }}">
     <div class="container">
@@ -40,6 +40,14 @@
             <div class="stats3">
                 <span class="type">Special Attack</span><span class="value">{{ special_attaque }}</span><br>
                 <span class="type">Special Defense</span><span class="value">{{ special_defense }}</span><br>
+            </div>
+            <div class="wrapper-heart">
+                <div class="home-button-div">
+                    <a href="{% url 'teams' %}"><button class="home-button">
+                        <span>Add this pokemon to my team !</span>
+                        <i class="icon-arrow-right"></i>
+                    </button></a>
+                </div>
             </div>
             <div class="wrapper-selector">
                 <a href="{% url 'detail' id|add:-1 %}"><img src="{% static '/images/arrow-left-long-solid.svg' %}"></a>
