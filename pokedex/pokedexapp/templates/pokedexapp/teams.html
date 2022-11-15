@@ -1,7 +1,46 @@
 {% load static %}
 <link rel="stylesheet" href="{% static '/styles/teams.css' %}">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css" />
 <link rel="icon" type="image/png" href="{% static '/images/icon-pikachu.png' %}" />
 <title>Teams</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<h1>Teams</h1>
+<div class="menu">
+    <img class = 'pokemon-fond' id="pokemon-fond" src="{% static '/images/Pokeball-grey.png' %}">
+    <button onclick="menuClick(false);" id="button-menu"><img src="{% static '/images/bars-solid.svg' %}" id="menu-img"></button>
+</div>
+<div class="menu-wrapper" id="menu-background">
+    <a href="{% url 'home' %}"><p>Home</p></a>
+    <a href="{% url 'list' %}"><p>List</p></a>
+    <a href="{% url 'teams' %}"><p>Teams</p></a>
+</div>
+<div class="text">My Teams</div>
+<div class="home-button-div">
+    <a href="{% url 'teams' %}"><button class="home-button">
+        <span>Create a new team</span>
+        <i class="icon-arrow-right"></i>
+    </button></a>
+</div>
+<div class="wrapper">
+    <div class="container">
+        <div class="case">
+            <p>Equipe 1</p>
+            <div class="circle"><img src="{% static '/images/plus-solid.svg' %}"></div>
+            <div class="circle"><img src="{% static '/images/plus-solid.svg' %}"></div>
+            <div class="circle"><img src="{% static '/images/plus-solid.svg' %}"></div>
+            <div class="circle"><img src="{% static '/images/plus-solid.svg' %}"></div>
+            <div class="circle"><img src="{% static '/images/plus-solid.svg' %}"></div>
+            <img class="trash" src="{% static '/images/trash-can-regular.svg' %}">
+        </div>
+        <div class="case">
+            <p>Equipe 2</p>
+            <div class="circle"><img src="{% static '/images/plus-solid.svg' %}"></div>
+            <div class="circle"><img src="{% static '/images/plus-solid.svg' %}"></div>
+            <div class="circle"><img src="{% static '/images/plus-solid.svg' %}"></div>
+            <div class="circle"><img src="{% static '/images/plus-solid.svg' %}"></div>
+            <div class="circle"><img src="{% static '/images/plus-solid.svg' %}"></div>
+            <img class="trash" src="{% static '/images/trash-can-regular.svg' %}">
+        </div>
+    </div>
+</div>
+<script src="{% static '/scripts/menu.js' %}"></script>
