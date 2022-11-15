@@ -146,8 +146,11 @@ def couleur(type_liste):
     return type_couleur
 
 def teams(request):
+    return render(request, 'pokedexapp/teams.html')
+
+def addTeam(request):
     equipe = Equipe()
     equipe.nom = request.POST['teamName']
     equipe.save()
-
     return render(request, 'pokedexapp/teams.html')
+    
