@@ -27,7 +27,7 @@
 
 <div class="input-search">
     <img src="{% static '/images/magnifying-glass-solid.svg' %}">
-    <input type="text" id="searchTeam" name="searchTeam" placeholder="Search team">
+    <input type="text" id="searchTeam" name="searchTeam" placeholder="Team, Pokemon's name...">
 </div>
 
 <div class="wrapper2">
@@ -36,6 +36,8 @@
             <div class="case">
                 <p>{{ x.nom }}</p>
                 {% for y in x.pokemons %}
+                    <p style="visibility:hidden">{{y.nom}}</p>
+                    <p style="visibility:hidden">{{y.numero | stringformat:"03d" }}</p>
                     <a href="{% url 'detail' y.numero %}"><div class="circle" id="add-pokemon" title="{{y.nom | capfirst}}">
                         <img class="image-pokemon" src="{{ y.front_image }}">
                         <form action = "/pokedexapp/deletePokemon/" method = "post">
@@ -84,7 +86,7 @@
       <div class="modal-body">
         <div class="input-search">
             <img src="{% static '/images/magnifying-glass-solid.svg' %}">
-            <input type="text" id="searchPokemon" name="searchPokemon" placeholder="Search pokemon">
+            <input type="text" id="searchPokemon" name="searchPokemon" placeholder="Search pokemon's name or id">
         </div>
         <div class="wrapper">   
             <div class="container" id="listePokemon">
