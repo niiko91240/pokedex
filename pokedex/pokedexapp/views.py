@@ -146,7 +146,26 @@ def couleur(type_liste):
     return type_couleur
 
 def teams(request):
-    return render(request, 'pokedexapp/teams.html')
+    result_pokemon = []
+    pokemons_liste = Pokemon.objects.all()
+    liste_pokemon = []
+    for poke in pokemons_liste:
+        type_liste = poke.types.all()
+        type_couleur = couleur(type_liste)
+        pokemon = {
+            'nom' : poke.nom,
+            'types' : type_liste,
+            'image' : poke.front_image,
+            'couleur' : type_couleur,
+            'numero' : poke.numero
+        }
+        result_pokemon.append(pokemon)
+    #print(result_pokemon)
+    dict = {
+        'pokemon' : result_pokemon,
+    }
+    return render(request, 'pokedexapp/teams.html',dict)
+
 
 def addTeam(request):
     equipe = Equipe()
@@ -154,3 +173,4 @@ def addTeam(request):
     equipe.save()
     return render(request, 'pokedexapp/teams.html')
     
+
