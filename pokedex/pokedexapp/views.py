@@ -67,6 +67,8 @@ def insert_api(request):
     return HttpResponse(text)
 
 def list(request):
+    request.session['lastpage'] = "list"
+    print(request.session['lastpage'])
     result_pokemon = []
     pokemons_liste = Pokemon.objects.all()
     for poke in pokemons_liste:
@@ -87,7 +89,7 @@ def list(request):
     return render(request, 'pokedexapp/liste.html',dict)
 
 def home(request):
-    
+    request.session['lastpage'] = "home"
     numero1=rand.randint(1,151)
     pokemonDiscover = [Pokemon.objects.get(numero=numero1)]
     numero2=rand.randint(1,151)
@@ -159,6 +161,7 @@ def couleur(type_liste):
     return type_couleur
 
 def teams(request):
+    request.session['lastpage'] = "teams"
     result_pokemon = []
     pokemons_liste = Pokemon.objects.all()
     for poke in pokemons_liste:
@@ -199,6 +202,7 @@ def teams(request):
 
 
 def addTeam(request):
+    request.session['lastpage'] = "teams"
     equipe = Equipe()
     equipe.nom = request.POST['teamName']
     equipe.save()
@@ -206,11 +210,13 @@ def addTeam(request):
     
 
 def deleteTeam(request):
+    request.session['lastpage'] = "teams"
     equipe = Equipe.objects.get(id=request.POST['identifiant'])
     equipe.delete()
     return redirect('/pokedexapp/teams')
 
 def addPokemon(request):
+    request.session['lastpage'] = "teams"
     equipe = Equipe.objects.get(id=request.POST['idTeam'])
     pokemon = Pokemon.objects.get(numero=request.POST['idPokemon'])
     equipe.pokemons.add(pokemon)

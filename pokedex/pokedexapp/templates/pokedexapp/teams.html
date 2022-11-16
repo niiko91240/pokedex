@@ -27,7 +27,7 @@
 
 <div class="input-search">
     <img src="{% static '/images/magnifying-glass-solid.svg' %}">
-    <input type="text" id="searchTeam" name="searchTeam" placeholder="Search Team, pokemon...">
+    <input type="text" id="searchTeam" name="searchTeam" placeholder="Search team">
 </div>
 
 <div class="wrapper2">
@@ -37,6 +37,8 @@
                 <p>{{ x.nom }}</p>
                 {% for y in x.pokemons %}
                     <a href="{% url 'detail' y.numero %}"><div class="circle" id="add-pokemon" title="{{y.nom | capfirst}}"><img class="image-pokemon" src="{{ y.front_image }}"></div></a>
+
+                
                 {% endfor %}
                 {% for y in x.nb_pokemons %}
                     <div class="circle" id="add-pokemon" onclick="afficherPokemon({{ x.id }});"><img class="image-plus" src="{% static '/images/plus-solid.svg' %}"></div>
