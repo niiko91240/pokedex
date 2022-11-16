@@ -44,6 +44,13 @@ $(document).ready(function(){
         $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
       });
     });
+
+    $("#searchPokemon").on("keyup", function() {
+      var value = $(this).val().toLowerCase();
+      $("#listePokemon > div").filter(function() {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+      });
+    });
   });
 
 

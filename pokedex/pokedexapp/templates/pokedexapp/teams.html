@@ -74,6 +74,10 @@
         <span class="close">&times;</span>
       </div>
       <div class="modal-body">
+        <div class="input-search">
+            <img src="{% static '/images/magnifying-glass-solid.svg' %}">
+            <input type="text" id="searchPokemon" name="searchPokemon" placeholder="Search pokemon">
+        </div>
         <div class="wrapper">
             <div class="container" id="listePokemon">
                 {% for x in pokemon %}
