@@ -16,31 +16,51 @@
 </div>
 <div class="text">My Teams</div>
 <div class="home-button-div">
-    <a href="{% url 'teams' %}"><button class="home-button">
-        <span>Create a new team</span>
+    <button type="submit" class="home-button" onclick="createTeam();">
+        <span>Add new team</span>
         <i class="icon-arrow-right"></i>
-    </button></a>
+    </button>
+    <!--<form action = "/pokedexapp/addTeam/" method = "post">
+        {% csrf_token %}
+        <input id="teamName" type="text" name="teamName" placeholder="Your team's name">
+        <button type="submit" class="home-button" onclick="createTeam();">
+            <span>Add new team</span>
+            <i class="icon-arrow-right"></i>
+        </button>
+    </form>-->
 </div>
-<div class="wrapper">
-    <div class="container">
+<div class="wrapper2">
+    <div class="container2" id="container2">
         <div class="case">
             <p>Equipe 1</p>
-            <div class="circle"><img src="{% static '/images/plus-solid.svg' %}"></div>
-            <div class="circle"><img src="{% static '/images/plus-solid.svg' %}"></div>
-            <div class="circle"><img src="{% static '/images/plus-solid.svg' %}"></div>
-            <div class="circle"><img src="{% static '/images/plus-solid.svg' %}"></div>
-            <div class="circle"><img src="{% static '/images/plus-solid.svg' %}"></div>
-            <img class="trash" src="{% static '/images/trash-can-regular.svg' %}">
-        </div>
-        <div class="case">
-            <p>Equipe 2</p>
-            <div class="circle"><img src="{% static '/images/plus-solid.svg' %}"></div>
-            <div class="circle"><img src="{% static '/images/plus-solid.svg' %}"></div>
-            <div class="circle"><img src="{% static '/images/plus-solid.svg' %}"></div>
-            <div class="circle"><img src="{% static '/images/plus-solid.svg' %}"></div>
-            <div class="circle"><img src="{% static '/images/plus-solid.svg' %}"></div>
+            <div class="circle" id="add-pokemon" onclick="afficherPokemon();"><img src="{% static '/images/plus-solid.svg' %}"></div>
+            <div class="circle" id="add-pokemon" onclick="afficherPokemon();"><img src="{% static '/images/plus-solid.svg' %}"></div>
+            <div class="circle" id="add-pokemon" onclick="afficherPokemon();"><img src="{% static '/images/plus-solid.svg' %}"></div>
+            <div class="circle" id="add-pokemon" onclick="afficherPokemon();"><img src="{% static '/images/plus-solid.svg' %}"></div>
+            <div class="circle" id="add-pokemon" onclick="afficherPokemon();"><img src="{% static '/images/plus-solid.svg' %}"></div>
             <img class="trash" src="{% static '/images/trash-can-regular.svg' %}">
         </div>
     </div>
 </div>
+<div id="myModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span id="title">Select the pokemon to add</span>
+        <span class="close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <div class="wrapper">
+            <div class="container" id="listePokemon">
+                {% for x in pokemon %}
+                    <a href="{% url 'detail' x.numero %}" id="case-{{ x.numero }}"><div class='case-{{ x.couleur }}' id="case-{{ x.numero }}">
+                        <p class ='pokemon-nom' id="{{ x.numero }}">{{ x.nom }}</p>
+                        <img class='pokemon-pokemon' src='{{ x.image }}'>
+                    </div></a>
+                {% endfor %}
+            </div>
+        </div>
+      </div>
+    </div>
+</div>
+<script src="{% static '/scripts/teams.js' %}"></script>
 <script src="{% static '/scripts/menu.js' %}"></script>
