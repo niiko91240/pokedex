@@ -16,10 +16,15 @@
 </div>
 <div class="text">My Teams</div>
 <div class="home-button-div">
-    <button type="submit" class="home-button" onclick="createTeam();">
-        <span>Add new team</span>
-        <i class="icon-arrow-right"></i>
-    </button>
+    <form action = "/pokedexapp/addTeam/" method = "post">
+        {% csrf_token %}
+        <input id="teamName" type="text" name="teamName" placeholder="Your team's name">
+        <button type="submit" class="home-button">
+            <span>Add new team</span>
+            <i class="icon-arrow-right"></i>
+        </button>
+    </form>
+
     <!--<form action = "/pokedexapp/addTeam/" method = "post">
         {% csrf_token %}
         <input id="teamName" type="text" name="teamName" placeholder="Your team's name">
@@ -29,7 +34,29 @@
         </button>
     </form>-->
 </div>
+
+<div class="input-search">
+    <img src="{% static '/images/magnifying-glass-solid.svg' %}">
+    <input type="text" id="searchTeam" name="searchTeam" placeholder="Search Team, pokemon...">
+</div>
+
 <div class="wrapper2">
+    <div class="container2" id="listeTeam">
+        {% for x in teams %}
+            <div class="case">
+                <p>{{ x.nom }}</p>
+                <div class="circle" id="add-pokemon" onclick="afficherPokemon();"><img src="{% static '/images/plus-solid.svg' %}"></div>
+                <div class="circle" id="add-pokemon" onclick="afficherPokemon();"><img src="{% static '/images/plus-solid.svg' %}"></div>
+                <div class="circle" id="add-pokemon" onclick="afficherPokemon();"><img src="{% static '/images/plus-solid.svg' %}"></div>
+                <div class="circle" id="add-pokemon" onclick="afficherPokemon();"><img src="{% static '/images/plus-solid.svg' %}"></div>
+                <div class="circle" id="add-pokemon" onclick="afficherPokemon();"><img src="{% static '/images/plus-solid.svg' %}"></div>
+                <img class="trash" src="{% static '/images/trash-can-regular.svg' %}">
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+<!--div class="wrapper2">
     <div class="container2" id="container2">
         <div class="case">
             <p>Equipe 1</p>
@@ -41,7 +68,8 @@
             <img class="trash" src="{% static '/images/trash-can-regular.svg' %}">
         </div>
     </div>
-</div>
+</div-->
+
 <div id="myModal" class="modal">
     <div class="modal-content">
       <div class="modal-header">

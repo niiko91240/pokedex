@@ -24,19 +24,14 @@
     </button></a>
 </div>
 <div class="propo-container">
-    <a href="{% url 'detail' 6 %}"><div class="propo">
+    {% for pokemon in pokemonDiscover %}
+    <a href="{% url 'detail' 1 %} "><div class="propo">
         <div class="propo-circle"></div>
-        <img class="propo-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png">
-        <div class="propo-nom">Charizard</div>
-        <div class="propo-type">FIRE</div>
+        <img class="propo-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{pokemon.numero}}.png">
+        <div class="propo-nom">{{pokemon.nom}}</div>
+        <div class="propo-type">{{pokemon.types.first.nom | upper }}</div>
         <i class="icon-arrow-right"></i>
     </div></a>
-    <a href="{% url 'detail' 25 %}"><div class="propo">
-        <div class="propo-circle"></div>
-        <img class="propo-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png">
-        <div class="propo-nom">Pikachu</div>
-        <div class="propo-type" style="background-color: #FFD76F;">ELECTRIC</div>
-        <i class="icon-arrow-right"></i>
-    </div></a>
+    {% endfor %}
 </div>
 <script src="{% static '/scripts/menu.js' %}"></script>

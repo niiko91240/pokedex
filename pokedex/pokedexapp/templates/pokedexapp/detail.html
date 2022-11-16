@@ -50,10 +50,14 @@
                 </div>
             </div>
             <div class="wrapper-selector">
-                <a href="{% url 'detail' id|add:-1 %}"><img src="{% static '/images/arrow-left-long-solid.svg' %}"></a>
+                {% if id != 001 %}
+                  <a href="{% url 'detail' id|add:-1 %}"><img src="{% static '/images/arrow-left-long-solid.svg' %}"></a>
+                {% endif %}
                 <span>#{{ id|stringformat:"03d" }}</span>
-                <a href="{% url 'detail' id|add:1 %}"><img src="{% static '/images/arrow-right-long-solid.svg' %}"></a>
-            </div>
+                {% if id != 151 %}
+                  <a href="{% url 'detail' id|add:1 %}"><img src="{% static '/images/arrow-right-long-solid.svg' %}"></a>
+                {% endif %}
+              </div>
         </div>
     </div>
 </div>

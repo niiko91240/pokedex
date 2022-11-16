@@ -6,6 +6,7 @@ from django.template import loader
 from asyncio.windows_events import NULL
 import requests
 import os
+import random as rand   
 
 
 # Create your views here.
@@ -86,7 +87,19 @@ def list(request):
     return render(request, 'pokedexapp/liste.html',dict)
 
 def home(request):
-    return render(request, 'pokedexapp/home.html')
+    
+    numero1=rand.randint(1,151)
+    pokemonDiscover = [Pokemon.objects.get(numero=numero1)]
+    numero2=rand.randint(1,151)
+    if numero1 == numero2:
+        while numero1==numero2: 
+            numero2=rand.randint(1,151)
+    pokemonDiscover.append(Pokemon.objects.get(numero=numero2))
+    print(pokemonDiscover[0].types.first().nom)
+    dict = {
+        'pokemonDiscover' : pokemonDiscover,
+    }
+    return render(request, 'pokedexapp/home.html',dict)
 
 def detail(request, id):
     pokemon = Pokemon.objects.filter(numero=id)
@@ -159,10 +172,19 @@ def teams(request):
             'couleur' : type_couleur,
             'numero' : poke.numero
         }
-        result_pokemon.append(pokemon)
-    #print(result_pokemon)
+    result_pokemon.append(pokemon)
+    result_teams = []
+    teams_liste = Equipe.objects.all()
+    for team in teams_liste:
+        equipe = {
+            'id' : team.pk,
+            'nom' : team.nom,
+        }
+        print(str(equipe['id'])+' '+equipe['nom'])
+        result_teams.append(equipe)
     dict = {
         'pokemon' : result_pokemon,
+        'teams' : result_teams,
     }
     return render(request, 'pokedexapp/teams.html',dict)
 
@@ -174,3 +196,7 @@ def addTeam(request):
     return render(request, 'pokedexapp/teams.html')
     
 
+def deleteTeam(request):
+    equipe = Equipe()
+    equipe.pk = request.POST
+    return render(request, 'pokedexapp/teams.html')
