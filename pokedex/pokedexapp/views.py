@@ -69,7 +69,6 @@ def insert_api(request):
 def list(request):
     result_pokemon = []
     pokemons_liste = Pokemon.objects.all()
-    liste_pokemon = []
     for poke in pokemons_liste:
         type_liste = poke.types.all()
         type_couleur = couleur(type_liste)
@@ -162,7 +161,6 @@ def couleur(type_liste):
 def teams(request):
     result_pokemon = []
     pokemons_liste = Pokemon.objects.all()
-    liste_pokemon = []
     for poke in pokemons_liste:
         type_liste = poke.types.all()
         type_couleur = couleur(type_liste)
@@ -175,11 +173,12 @@ def teams(request):
             'front_image' : poke.front_image
         }
         result_pokemon.append(pokemon)
+    
+    
     result_teams = []
     teams_liste = Equipe.objects.all()
     for team in teams_liste:
-        pokemon_team = []
-        pokemon_team = team.pokemon_set.all()
+        pokemon_team = team.pokemons.all()
         nb_pokemon_to_add = []
         for i in range(5-pokemon_team.count()):
             nb_pokemon_to_add.append(1)
@@ -190,6 +189,8 @@ def teams(request):
             'nb_pokemons' : nb_pokemon_to_add
         }
         result_teams.append(equipe)
+
+
     dict = {
         'pokemon' : result_pokemon,
         'teams' : result_teams,
@@ -212,6 +213,6 @@ def deleteTeam(request):
 def addPokemon(request):
     equipe = Equipe.objects.get(id=request.POST['idTeam'])
     pokemon = Pokemon.objects.get(numero=request.POST['idPokemon'])
-    pokemon.equipes.add(equipe)
-    pokemon.save()
+    equipe.pokemons.add(pokemon)
+    equipe.save()
     return redirect('/pokedexapp/teams')
