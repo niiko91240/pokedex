@@ -7,6 +7,7 @@ from asyncio.windows_events import NULL
 import requests
 import os
 import random as rand   
+from django.shortcuts import redirect
 
 
 # Create your views here.
@@ -180,7 +181,6 @@ def teams(request):
             'id' : team.pk,
             'nom' : team.nom,
         }
-        print(str(equipe['id'])+' '+equipe['nom'])
         result_teams.append(equipe)
     dict = {
         'pokemon' : result_pokemon,
@@ -193,10 +193,12 @@ def addTeam(request):
     equipe = Equipe()
     equipe.nom = request.POST['teamName']
     equipe.save()
-    return render(request, 'pokedexapp/teams.html')
+    return redirect('/pokedexapp/teams')
     
 
 def deleteTeam(request):
-    equipe = Equipe()
-    equipe.pk = request.POST
-    return render(request, 'pokedexapp/teams.html')
+    print("delete team")
+    print(request.POST['identifiant'])
+    equipe = Equipe.objects.get('pk',request.POST['identifiant'])
+    equipe.delete()
+    return redirect('/pokedexapp/teams')
