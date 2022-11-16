@@ -173,7 +173,7 @@ def teams(request):
             'couleur' : type_couleur,
             'numero' : poke.numero
         }
-    result_pokemon.append(pokemon)
+        result_pokemon.append(pokemon)
     result_teams = []
     teams_liste = Equipe.objects.all()
     for team in teams_liste:
@@ -199,6 +199,6 @@ def addTeam(request):
 def deleteTeam(request):
     print("delete team")
     print(request.POST['identifiant'])
-    equipe = Equipe.objects.get('pk',request.POST['identifiant'])
+    equipe = Equipe.objects.get(id=request.POST['identifiant'])
     equipe.delete()
     return redirect('/pokedexapp/teams')

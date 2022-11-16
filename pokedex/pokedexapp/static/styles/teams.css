@@ -158,12 +158,7 @@ html {
     gap: 20px;
 }
 
-.case .trash {
-    width: 20px;
-    cursor: pointer;
-    position: absolute;
-    margin-left: 750px;
-}
+
 
 .case p {
     position: absolute;
@@ -448,3 +443,15 @@ html {
     height: 100%;
     width: 100%;
   }
+
+  form button {
+    all: unset;
+  }
+
+  form button .trash {
+    width: 20px;
+    cursor: pointer;
+    position: absolute;
+    margin-left: 70px;
+    margin-top: -10px;
+}

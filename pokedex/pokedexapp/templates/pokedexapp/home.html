@@ -28,7 +28,7 @@
     <a href="{% url 'detail' pokemon.numero %} "><div class="propo">
         <div class="propo-circle"></div>
         <img class="propo-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{pokemon.numero}}.png">
-        <div class="propo-nom">{{pokemon.nom}}</div>
+        <div class="propo-nom">{{pokemon.nom | capfirst}}</div>
         <div class="propo-type">{{pokemon.types.first.nom | upper }}</div>
         <i class="icon-arrow-right"></i>
     </div></a>

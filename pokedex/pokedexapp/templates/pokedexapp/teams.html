@@ -50,8 +50,9 @@
                 <div class="circle" id="add-pokemon" onclick="afficherPokemon();"><img src="{% static '/images/plus-solid.svg' %}"></div>
                 <div class="circle" id="add-pokemon" onclick="afficherPokemon();"><img src="{% static '/images/plus-solid.svg' %}"></div>
                 <div class="circle" id="add-pokemon" onclick="afficherPokemon();"><img src="{% static '/images/plus-solid.svg' %}"></div>
-                <form action = "/pokedexapp/delTeam/" method = "post" id="delete"></form>    
-                    <input type="hidden" id="identifiant" value="{{x.id}}"><img class="trash" src="{% static '/images/trash-can-regular.svg' %}" onclick="submitDelete()">
+                <form action = "/pokedexapp/delTeam/" method = "post" id="delete"> 
+                    {% csrf_token %} 
+                    <button type="submit" name="identifiant" id="identifiant" value="{{x.id}}"><img class="trash" src="{% static '/images/trash-can-regular.svg' %}"></button>
                 </form>
             </div>
         {% endfor %}
