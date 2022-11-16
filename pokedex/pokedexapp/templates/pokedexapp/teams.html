@@ -18,21 +18,11 @@
 <div class="home-button-div">
     <form action = "/pokedexapp/addTeam/" method = "post">
         {% csrf_token %}
-        <input id="teamName" type="text" name="teamName" placeholder="Your team's name">
-        <button type="submit" class="home-button">
-            <span>Add new team</span>
-            <i class="icon-arrow-right"></i>
-        </button>
+        <div class="input-team">
+            <img src="{% static '/images/heart-circle-plus-solid.svg' %}">
+            <input id="teamName" type="text" name="teamName" placeholder="Create a new team">
+        </div>
     </form>
-
-    <!--<form action = "/pokedexapp/addTeam/" method = "post">
-        {% csrf_token %}
-        <input id="teamName" type="text" name="teamName" placeholder="Your team's name">
-        <button type="submit" class="home-button" onclick="createTeam();">
-            <span>Add new team</span>
-            <i class="icon-arrow-right"></i>
-        </button>
-    </form>-->
 </div>
 
 <div class="input-search">
@@ -45,11 +35,12 @@
         {% for x in teams %}
             <div class="case">
                 <p>{{ x.nom }}</p>
-                <div class="circle" id="add-pokemon" onclick="afficherPokemon();"><img src="{% static '/images/plus-solid.svg' %}"></div>
-                <div class="circle" id="add-pokemon" onclick="afficherPokemon();"><img src="{% static '/images/plus-solid.svg' %}"></div>
-                <div class="circle" id="add-pokemon" onclick="afficherPokemon();"><img src="{% static '/images/plus-solid.svg' %}"></div>
-                <div class="circle" id="add-pokemon" onclick="afficherPokemon();"><img src="{% static '/images/plus-solid.svg' %}"></div>
-                <div class="circle" id="add-pokemon" onclick="afficherPokemon();"><img src="{% static '/images/plus-solid.svg' %}"></div>
+                {% for y in x.pokemons %}
+                    <a href="{% url 'detail' y.numero %}"><div class="circle" id="add-pokemon" title="{{y.nom | capfirst}}"><img class="image-pokemon" src="{{ y.front_image }}"></div></a>
+                {% endfor %}
+                {% for y in x.nb_pokemons %}
+                    <div class="circle" id="add-pokemon" onclick="afficherPokemon({{ x.id }});"><img class="image-plus" src="{% static '/images/plus-solid.svg' %}"></div>
+                {% endfor %}
                 <form action = "/pokedexapp/delTeam/" method = "post" id="delete"> 
                     {% csrf_token %} 
                     <button type="submit" name="identifiant" id="identifiant" value="{{x.id}}"><img class="trash" src="{% static '/images/trash-can-regular.svg' %}"></button>
@@ -84,10 +75,10 @@
         <div class="wrapper">
             <div class="container" id="listePokemon">
                 {% for x in pokemon %}
-                    <a href="{% url 'detail' x.numero %}" id="case-{{ x.numero }}"><div class='case-{{ x.couleur }}' id="case-{{ x.numero }}">
+                    <div class='case-{{ x.couleur }}' id="case-{{ x.numero }}" onclick="selectPokemon({{ x.numero }})">
                         <p class ='pokemon-nom' id="{{ x.numero }}">{{ x.nom }}</p>
                         <img class='pokemon-pokemon' src='{{ x.image }}'>
-                    </div></a>
+                    </div>
                 {% endfor %}
             </div>
         </div>
