@@ -222,3 +222,11 @@ def addPokemon(request):
     equipe.pokemons.add(pokemon)
     equipe.save()
     return redirect('/pokedexapp/teams')
+
+def deletePokemon(request):
+    request.session['lastpage'] = "teams"
+    equipe = Equipe.objects.get(id=request.POST['idTeam'])
+    pokemon = Pokemon.objects.get(numero=request.POST['idPokemon'])
+    equipe.pokemons.remove(pokemon)
+    equipe.save()
+    return redirect('/pokedexapp/teams')

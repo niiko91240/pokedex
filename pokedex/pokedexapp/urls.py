@@ -11,5 +11,6 @@ urlpatterns = [
     path('detail/<int:id>/', views.detail, name='detail'),
     path('addTeam/',views.addTeam, name='addTeam'),
     path('delTeam/',views.deleteTeam, name='delTeam'),
-    path('addPokemon/',views.addPokemon, name='addPokemon')
+    path('addPokemon/',views.addPokemon, name='addPokemon'),
+    path('deletePokemon/',views.deletePokemon, name='deletePokemon')
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

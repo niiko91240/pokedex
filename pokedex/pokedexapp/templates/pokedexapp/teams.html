@@ -36,7 +36,15 @@
             <div class="case">
                 <p>{{ x.nom }}</p>
                 {% for y in x.pokemons %}
-                    <a href="{% url 'detail' y.numero %}"><div class="circle" id="add-pokemon" title="{{y.nom | capfirst}}"><img class="image-pokemon" src="{{ y.front_image }}"></div></a>
+                    <a href="{% url 'detail' y.numero %}"><div class="circle" id="add-pokemon" title="{{y.nom | capfirst}}">
+                        <img class="image-pokemon" src="{{ y.front_image }}">
+                        <form action = "/pokedexapp/deletePokemon/" method = "post">
+                            {% csrf_token %}
+                            <input id="idTeam" type="hidden" name="idTeam" value="{{x.id}}">
+                            <input id="idPokemon" type="hidden" name="idPokemon" value="{{y.numero}}">
+                            <button type="submit"><img class="trash2" src="{% static '/images/plus-solid.svg' %}"></button>
+                        </form>
+                    </div></a>
 
                 
                 {% endfor %}
@@ -78,11 +86,12 @@
             <img src="{% static '/images/magnifying-glass-solid.svg' %}">
             <input type="text" id="searchPokemon" name="searchPokemon" placeholder="Search pokemon">
         </div>
-        <div class="wrapper">
+        <div class="wrapper">   
             <div class="container" id="listePokemon">
                 {% for x in pokemon %}
                     <div class='case-{{ x.couleur }}' id="case-{{ x.numero }}" onclick="selectPokemon({{ x.numero }})">
-                        <p class ='pokemon-nom' id="{{ x.numero }}">{{ x.nom }}</p>
+                        <p class ='pokemon-nom' id="{{ x.numero }}">{{ x.nom | capfirst }}</p>
+                        <p class ='pokemon-id' >#{{ x.numero | stringformat:"03d" }}</p>
                         <img class='pokemon-pokemon' src='{{ x.image }}'>
                     </div>
                 {% endfor %}
