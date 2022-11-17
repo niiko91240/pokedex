@@ -207,18 +207,200 @@ button:hover i {
     margin-top: 35px;
 }
 
-.propo-type {
+.propo-type-grass {
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
     position: absolute;
     padding: 4px 20px;
-    background-color: #FF4C33;
     color: white;
     border-radius: 18px;
     margin-left: 130px;
     margin-top: 65px;
     font-size: 12px;
-}
+    background-color: #49D0B0;
+  }
+
+  .propo-type-flying {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    position: absolute;
+    padding: 4px 20px;
+    color: white;
+    border-radius: 18px;
+    margin-left: 130px;
+    margin-top: 65px;
+    font-size: 12px;
+    background-color: #49D0B0;
+  }
+
+  .propo-type-bug {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    position: absolute;
+    padding: 4px 20px;
+    color: white;
+    border-radius: 18px;
+    margin-left: 130px;
+    margin-top: 65px;
+    font-size: 12px;
+    background-color: #49D0B0;
+  }
+  
+  .propo-type-fire {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    position: absolute;
+    padding: 4px 20px;
+    color: white;
+    border-radius: 18px;
+    margin-left: 130px;
+    margin-top: 65px;
+    font-size: 12px;
+    background-color: #FC6C6D;
+  }
+
+  .propo-type-dragon {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    position: absolute;
+    padding: 4px 20px;
+    color: white;
+    border-radius: 18px;
+    margin-left: 130px;
+    margin-top: 65px;
+    font-size: 12px;
+    background-color: #FC6C6D;
+  }
+
+  .propo-type-fighting {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    position: absolute;
+    padding: 4px 20px;
+    color: white;
+    border-radius: 18px;
+    margin-left: 130px;
+    margin-top: 65px;
+    font-size: 12px;
+    background-color: #FC6C6D;
+  }
+  
+  .propo-type-water {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    position: absolute;
+    padding: 4px 20px;
+    color: white;
+    border-radius: 18px;
+    margin-left: 130px;
+    margin-top: 65px;
+    font-size: 12px;
+    background-color: #77BCFD;
+  }
+  
+  .propo-type-electric {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    position: absolute;
+    padding: 4px 20px;
+    color: white;
+    border-radius: 18px;
+    margin-left: 130px;
+    margin-top: 65px;
+    font-size: 12px;
+    background-color: #FFD76F;
+  }
+
+  .propo-type-steel {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    position: absolute;
+    padding: 4px 20px;
+    color: white;
+    border-radius: 18px;
+    margin-left: 130px;
+    margin-top: 65px;
+    font-size: 12px;
+    background-color: #FFD76F;
+  }
+  
+  .propo-type-ground {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    position: absolute;
+    padding: 4px 20px;
+    color: white;
+    border-radius: 18px;
+    margin-left: 130px;
+    margin-top: 65px;
+    font-size: 12px;
+    background-color: #96570a;
+  }
+
+  .propo-type-rock {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    position: absolute;
+    padding: 4px 20px;
+    color: white;
+    border-radius: 18px;
+    margin-left: 130px;
+    margin-top: 65px;
+    font-size: 12px;
+    background-color: #96570a;
+  }
+  
+  .propo-type-normal {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    position: absolute;
+    padding: 4px 20px;
+    color: white;
+    border-radius: 18px;
+    margin-left: 130px;
+    margin-top: 65px;
+    font-size: 12px;
+    background-color: #ffe29b;
+  }
+  
+  .propo-type-poison {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    position: absolute;
+    padding: 4px 20px;
+    color: white;
+    border-radius: 18px;
+    margin-left: 130px;
+    margin-top: 65px;
+    font-size: 12px;
+    background-color: #5b15a5;
+  }
+  
+  .propo-type-psychic {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    position: absolute;
+    padding: 4px 20px;
+    color: white;
+    border-radius: 18px;
+    margin-left: 130px;
+    margin-top: 65px;
+    font-size: 12px;
+    background-color: #e383f7;
+  }
+
+  .propo-type-fairy {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    position: absolute;
+    padding: 4px 20px;
+    color: white;
+    border-radius: 18px;
+    margin-left: 130px;
+    margin-top: 65px;
+    font-size: 12px;
+    background-color: #e383f7;
+  }
 
 .propo i {
     position: absolute;
