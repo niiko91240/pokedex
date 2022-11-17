@@ -13,10 +13,13 @@
     <a href="{% url 'list' %}"><p>List</p></a>
     <a href="{% url 'teams' %}"><p>Teams</p></a>
 </div>
-<div class="input-search">
-    <img src="{% static '/images/magnifying-glass-solid.svg' %}">
-    <input type="text" id="search" name="search" placeholder="Search Pokemon, type...">
-</div>
+<form action = "/pokedexapp/list/" method = "post">
+    {% csrf_token %}
+    <div class="input-search">
+        <img src="{% static '/images/magnifying-glass-solid.svg' %}">
+        <input type="text" id="search" name="search" placeholder="Search Pokemon, type...">
+    </div>
+</form>
 <div class="wrapper">
     <div class="container" id="listePokemon">
         {% for x in pokemon %}
@@ -31,5 +34,4 @@
         {% endfor %}
     </div>
 </div>
-<script src="{% static '/scripts/list.js' %}"></script>
 <script src="{% static '/scripts/menu.js' %}"></script>

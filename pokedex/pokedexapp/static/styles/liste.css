@@ -15,6 +15,7 @@ html {
   justify-content: center;
   margin-top: 150px;
   position: absolute;
+  padding-bottom: 50px;
 }
 
 .container {

@@ -251,12 +251,12 @@ html {
   
   /* Add Animation */
   @-webkit-keyframes slideIn {
-    from {bottom: -300px; opacity: 0} 
+    from {bottom: -400px; opacity: 0} 
     to {bottom: 0; opacity: 1}
   }
   
   @keyframes slideIn {
-    from {bottom: -300px; opacity: 0}
+    from {bottom: -400px; opacity: 0}
     to {bottom: 0; opacity: 1}
   }
   
@@ -276,6 +276,7 @@ html {
     justify-content: center;
     position: absolute;
     margin-top: 20px;
+    padding-bottom: 50px;
   }
   
   .modal-body .container {

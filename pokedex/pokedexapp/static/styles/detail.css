@@ -326,7 +326,7 @@ a {
 .home-button {
   all: unset;
   height: 60px;
-  width: 300px;
+  width: 200px;
   border-radius: 30px;
   background-color: transparent;
   cursor: pointer;
@@ -335,7 +335,7 @@ a {
 }
 
 .home-button span {
-  width: 300px;
+  width: 200px;
   color: white;
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
@@ -349,7 +349,7 @@ button i {
   margin-left: 10px;
   color: white;
   position: absolute;
-  margin-left: 260px;
+  margin-left: 160px;
   margin-top: -8px;
   transition: all 0.3s ease-in-out;
   opacity: 0;

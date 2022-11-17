@@ -8,6 +8,7 @@ import requests
 import os
 import random as rand   
 from django.shortcuts import redirect
+from django.db.models import Q
 
 
 # Create your views here.
@@ -68,9 +69,12 @@ def insert_api(request):
 
 def list(request):
     request.session['lastpage'] = "list"
-    print(request.session['lastpage'])
     result_pokemon = []
-    pokemons_liste = Pokemon.objects.all()
+    if 'search' not in request.POST:
+        param = ''
+    else:
+        param = request.POST['search']
+    pokemons_liste = Pokemon.objects.filter(Q(types__nom__icontains=param) | Q(nom__icontains=param))
     for poke in pokemons_liste:
         type_liste = poke.types.all()
         type_couleur = couleur(type_liste)
@@ -82,7 +86,6 @@ def list(request):
             'numero' : poke.numero
         }
         result_pokemon.append(pokemon)
-    #print(result_pokemon)
     dict = {
         'pokemon' : result_pokemon,
     }
@@ -97,7 +100,6 @@ def home(request):
         while numero1==numero2: 
             numero2=rand.randint(1,151)
     pokemonDiscover.append(Pokemon.objects.get(numero=numero2))
-    print(pokemonDiscover[0].types.first().nom)
     dict = {
         'pokemonDiscover' : pokemonDiscover,
     }
