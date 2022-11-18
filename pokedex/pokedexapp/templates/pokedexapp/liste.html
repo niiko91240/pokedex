@@ -1,0 +1,37 @@
+{% load static %}
+<link rel="stylesheet" href="{% static '/styles/liste.css' %}">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<link rel="icon" type="image/png" href="{% static '/images/icon-pikachu.png' %}" />
+<title>List</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="menu">
+    <img class = 'pokemon-fond' id="pokemon-fond" src="{% static '/images/Pokeball-grey.png' %}">
+    <button onclick="menuClick(false);" id="button-menu"><img src="{% static '/images/bars-solid.svg' %}" id="menu-img"></button>
+</div>
+<div class="menu-wrapper" id="menu-background">
+    <a href="{% url 'home' %}"><p>Home</p></a>
+    <a href="{% url 'list' %}"><p>List</p></a>
+    <a href="{% url 'teams' %}"><p>Teams</p></a>
+</div>
+<form action = "/pokedexapp/list/" method = "post">
+    {% csrf_token %}
+    <div class="input-search">
+        <img src="{% static '/images/magnifying-glass-solid.svg' %}">
+        <input type="text" id="search" name="search" placeholder="Search Pokemon, type...">
+    </div>
+</form>
+<div class="wrapper">
+    <div class="container" id="listePokemon">
+        {% for x in pokemon %}
+            <a href="{% url 'detail' x.numero %}" id="case-{{ x.numero }}"><div class='case-{{ x.couleur }}' id="case-{{ x.numero }}">
+                <p class ='pokemon-nom' id="{{ x.numero }}">{{ x.nom }}</p>
+                {% for y in x.types %}
+                    <button class ='pokemon-type{{ forloop.counter }}' id="{{ x.numero }}">{{ y.nom | upper }}</button>
+                {% endfor %}
+                <img class = 'pokemon-image' src="{% static '/images/Pokeball.png' %}">
+                <img class='pokemon-pokemon' src='{{ x.image }}'>
+            </div></a>
+        {% endfor %}
+    </div>
+</div>
+<script src="{% static '/scripts/menu.js' %}"></script>

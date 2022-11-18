@@ -1,0 +1,66 @@
+{% load static %}
+<link rel="stylesheet" href="{% static '/styles/detail.css' %}">
+<link rel="icon" type="image/png" href="{% static '/images/icon-pikachu.png' %}" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css" />
+<title>{{ nom|title }}</title>
+<div class="return"><a href="{% url request.session.lastpage %}">
+    <img src="{% static '/images/arrow-left-long-solid.svg' %}">
+</a></div>
+<div class="menu">
+    <img class = 'pokemon-fond' src="{% static '/images/Pokeball-rotate.png' %}">
+    <button onclick="menuClick(true);" id="button-menu"><img src="{% static '/images/bars-solid.svg' %}" id="menu-img"></button>
+</div>
+<div class="menu-wrapper" id="menu-background">
+    <a href="{% url 'home' %}"><p>Home</p></a>
+    <a href="{% url 'list' %}"><p>List</p></a>
+    <a href="{% url 'teams' %}"><p>Teams</p></a>
+</div>
+<div class="wrapper-{{ couleur }}">
+    <div class="container">
+        <div class="left">
+            <div class="title">{{ nom|title }}</div>
+            <div class="numero">#{{ id|stringformat:"03d" }}</div>
+            <div class="types">
+                {% for y in types %}
+                <button class ='pokemon-type'>{{ y.nom | upper }}</button>
+                {% endfor %}
+            </div>
+            <img class = 'pokemon-fond' src="{% static '/images/Pokeball.png' %}">
+            <img class="pokemon-image" src='{{ image }}'>
+        </div>
+        <div class="right">
+            <div class="stats">
+                <span class="type">HP</span><span class="value">{{ pv }}</span><br>
+                <span class="type">Speed</span><span class="value">{{ vitesse }}</span><br>
+            </div>
+            <div class="stats2">
+                <span class="type">Attack</span><span class="value">{{ attaque }}</span><br>
+                <span class="type">Defense</span><span class="value">{{ defense }}</span><br>
+            </div>
+            <div class="stats3">
+                <span class="type">Special Attack</span><span class="value">{{ special_attaque }}</span><br>
+                <span class="type">Special Defense</span><span class="value">{{ special_defense }}</span><br>
+            </div>
+            {% if request.session.lastpage != 'teams' %}
+            <div class="wrapper-heart">
+                <div class="home-button-div">
+                    <a href="{% url 'teams' %}"><button class="home-button">
+                        <span>Add to my team !</span>
+                        <i class="icon-arrow-right"></i>
+                    </button></a>
+                </div>
+            </div>
+            {% endif %}
+            <div class="wrapper-selector">
+                {% if id != 001 %}
+                  <a href="{% url 'detail' id|add:-1 %}"><img src="{% static '/images/arrow-left-long-solid.svg' %}"></a>
+                {% endif %}
+                <span>#{{ id|stringformat:"03d" }}</span>
+                {% if id != 151 %}
+                  <a href="{% url 'detail' id|add:1 %}"><img src="{% static '/images/arrow-right-long-solid.svg' %}"></a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{% static '/scripts/menu.js' %}"></script>

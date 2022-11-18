@@ -1,0 +1,37 @@
+{% load static %}
+<link rel="stylesheet" href="{% static '/styles/home.css' %}">
+<link rel="icon" type="image/png" href="{% static '/images/icon-pikachu.png' %}" />
+<title>My Pokedex</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css" />
+<!--<p class="home-title">My Pokedex</p>-->
+<div class="menu">
+    <img class = 'pokemon-fond' id="pokemon-fond" src="{% static '/images/Pokeball-grey.png' %}">
+    <button onclick="menuClick(false);" id="button-menu"><img src="{% static '/images/bars-solid.svg' %}" id="menu-img"></button>
+</div>
+<div class="menu-wrapper" id="menu-background">
+    <a href="{% url 'home' %}"><p>Home</p></a>
+    <a href="{% url 'list' %}"><p>List</p></a>
+    <a href="{% url 'teams' %}"><p>Teams</p></a>
+</div>
+<div class="wrapper">
+    <img src="{% static '/images/pikachu.png' %}" class="home-image">
+</div>
+<div class="home-text">Gotta catch<br>  'Em all !</div>
+<div class="home-button-div">
+    <a href="{% url 'list' %}"><button class="home-button">
+        <span>DISCOVER</span>
+        <i class="icon-arrow-right"></i>
+    </button></a>
+</div>
+<div class="propo-container">
+    {% for pokemon in pokemonDiscover %}
+    <a href="{% url 'detail' pokemon.numero %} "><div class="propo">
+        <div class="propo-circle"></div>
+        <img class="propo-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{pokemon.numero}}.png">
+        <div class="propo-nom">{{pokemon.nom | capfirst}}</div>
+        <div class="propo-type-{{pokemon.types.first.nom}}">{{pokemon.types.first.nom | upper }}</div>
+        <i class="icon-arrow-right"></i>
+    </div></a>
+    {% endfor %}
+</div>
+<script src="{% static '/scripts/menu.js' %}"></script>
