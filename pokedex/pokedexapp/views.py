@@ -70,12 +70,17 @@ def insert_api(request):
 def list(request):
     request.session['lastpage'] = "list"
     result_pokemon = []
-    if 'search' not in request.POST:
-        param = ''
+    if 'search2' not in request.POST:
+        pokemons_liste = Pokemon.objects.all()
+        param=''
     else:
-        param = request.POST['search']
-    pokemons_liste = Pokemon.objects.filter(Q(types__nom__icontains=param) | Q(nom__icontains=param))
-    for poke in pokemons_liste:
+        param = request.POST['search2']
+        pokemons_liste = Pokemon.objects.filter(Q(types__nom__icontains=param) | Q(nom__icontains=param))
+    pokemons_liste2 = []
+    for i in pokemons_liste : 
+        if i not in pokemons_liste2: 
+            pokemons_liste2.append(i) 
+    for poke in pokemons_liste2:
         type_liste = poke.types.all()
         type_couleur = couleur(type_liste)
         pokemon = {
@@ -88,6 +93,7 @@ def list(request):
         result_pokemon.append(pokemon)
     dict = {
         'pokemon' : result_pokemon,
+        'search' : param,
     }
     return render(request, 'pokedexapp/liste.html',dict)
 

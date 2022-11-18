@@ -16,8 +16,10 @@
 <form action = "/pokedexapp/list/" method = "post">
     {% csrf_token %}
     <div class="input-search">
-        <img src="{% static '/images/magnifying-glass-solid.svg' %}">
-        <input type="text" id="search" name="search" placeholder="Search Pokemon, type...">
+        <img class='loop' src="{% static '/images/magnifying-glass-solid.svg' %}">
+        <input type="text" id="search2" name="search2" placeholder="Search Pokemon, type..." value="{{ search }}">
+        <button type="submit"></button>
+        <button type="submit" onclick="vider();"><img class='plus' id="croix" src="{% static '/images/plus-solid.svg' %}"></button>
     </div>
 </form>
 <div class="wrapper">
@@ -35,3 +37,4 @@
     </div>
 </div>
 <script src="{% static '/scripts/menu.js' %}"></script>
+<script src="{% static '/scripts/list.js' %}"></script>
